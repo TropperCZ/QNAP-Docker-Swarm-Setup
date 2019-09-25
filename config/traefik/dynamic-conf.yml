@@ -3,49 +3,49 @@ http:
     https_redirect:
       entrypoints: 
         - "http"
-	    middlewares: 
+      middlewares: 
         - "https-redirect"
-	    service: "noop" 
-	    rule: "HostRegexp(`{host:[a-z-.]+}`)"
+      service: "noop" 
+      rule: "HostRegexp(`{host:[a-z-.]+}`)"
       
     gkoerk:
- 	    entrypoints: 
+      entrypoints: 
         - "https"
- 	    middlewares:
+      middlewares:
         - "forward-auth"
       service: "noop"
       rule: "Host(`gkoerk.com`)"      
- 	    tls:
- 	      certResolver: "namecheap"
- 	      domains:
- 		      - main: "*.gkoerk.com"
- 		        sans: "gkoerk.com"  
+        tls:
+          certResolver: "namecheap"
+          domains:
+          - main: "*.gkoerk.com"
+            sans: "gkoerk.com"  
  	  
     qnapunofficial:
- 	    entrypoints: 
-        - "https"    
- 	    middlewares: 
-        - "forward-auth"
+      entrypoints: 
+      - "https"    
+      middlewares: 
+      - "forward-auth"
       service: "noop"
       rule: "Host(`qnapunofficial.com`)"
- 	    tls:
- 	      certResolver: "namecheap"
- 	      domains:
- 		      - main: "*.qnapunofficial.com"
- 		        sans: "qnapunofficial.com" 
+      tls:
+        certResolver: "namecheap"
+        domains:
+        - main: "*.qnapunofficial.com"
+          sans: "qnapunofficial.com" 
 
     oracleoptimizer:
- 	    entrypoints: 
-        - "https"    
- 	    middlewares:
-        - "forward-auth"
+      entrypoints: 
+      - "https"    
+      middlewares:
+      - "forward-auth"
       service: "noop"
       rule: "Host(`oracleoptimizer.com`)" 	    
- 	    tls:
- 	      certResolver: "namecheap"
- 	      domains:
- 		      - main: "*.oracleoptimizer.com"
- 		        sans: "oracleoptimizer.com" 
+        tls:
+          certResolver: "namecheap"
+          domains:
+ 	  - main: "*.oracleoptimizer.com"
+ 	    sans: "oracleoptimizer.com" 
 
   middlewares:
     https-redirect:
